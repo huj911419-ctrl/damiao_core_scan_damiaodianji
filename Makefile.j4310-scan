@@ -1,0 +1,7 @@
+# Dedicated DM-J4310-2EC V1.1 two-bus read-only ID discovery.
+# Does not automatically flash a board or energize an external motor.
+GCC_PATH ?= $(firstword $(wildcard $(HOME)/.local/share/stm32cube/bundles/gnu-tools-for-stm32/*/bin))
+.PHONY: all
+all:
+	mkdir -p build
+	$(MAKE) -f Makefile ROBOT=sentry J4310_SCAN_ONLY=1 BUILD_DIR=build/j4310-v11-scan TARGET=J4310-v11-id-scan GCC_PATH=$(GCC_PATH) all
